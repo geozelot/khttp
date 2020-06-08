@@ -489,7 +489,7 @@ class KHttpAsyncGetSpec : Spek({
         }
         on("checking the bytes available to be read") {
             if (error != null) throw error!!
-            val available = response!!.raw.available()
+            val available = response!!.raw.read()
             it("should be greater than 0") {
                 assertTrue(available > 0)
             }
@@ -520,7 +520,7 @@ class KHttpAsyncGetSpec : Spek({
             if (error != null) throw error!!
             val iterator = response!!.contentIterator(chunkSize = 1)
             var counter = 0
-            val expected = byteArrayOf(0x22, 0xD8.toByte(), 0xC3.toByte(), 0x41)
+            val expected = byteArrayOf(0x44, 0x20, 0x82.toByte(), 0x3c)
             for (byte in iterator) {
                 assertEquals(1, byte.size)
                 assertEquals(expected[counter++], byte[0])
