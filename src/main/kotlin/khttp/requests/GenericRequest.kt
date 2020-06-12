@@ -198,18 +198,16 @@ class GenericRequest internal constructor(
         return stringWriter.toString()
     }
 
-    private fun URL.toIDN(): URL {
-        val newHost = IDN.toASCII(this.host)
-        this.javaClass.getDeclaredField("host").apply { this.isAccessible = true }.set(this, newHost)
-        this.javaClass.getDeclaredField("authority").apply { this.isAccessible = true }.set(this, if (this.port == -1) this.host else "${this.host}:${this.port}")
-        val query = if (this.query == null) {
+    private fun makeRoute(route: String): String {
+        val tempURL = URL(route + if (this.params.isNotEmpty()) "?${Parameters(this.params)}" else "")
+        val newHost = IDN.toASCII(tempURL.host)
+        val query = if (tempURL.query == null) {
             null
         } else {
-            URLDecoder.decode(this.query, "UTF-8")
+            URLDecoder.decode(tempURL.query, "UTF-8")
         }
-        return URL(URI(this.protocol, this.userInfo, this.host, this.port, this.path, query, this.ref).toASCIIString())
+        with(tempURL) {
+            return URL(URI(protocol, userInfo, newHost, port, path, query, ref).toASCIIString()).toString()
+        }
     }
-
-    private fun makeRoute(route: String) = URL(route + if (this.params.isNotEmpty()) "?${Parameters(this.params)}" else "").toIDN().toString()
-
 }
