@@ -1,3 +1,7 @@
+**Original ascclemens/khttp isn't actively maintained anymore and I can't reach its maintainers. I therefor continue development in this fork. This repo's master branch is always a stable build!**
+
+I hope one day the fixes and additions done here can be merged back into ascclemens/khttp.
+
 # khttp
 [![Travis CI](https://img.shields.io/travis/jkcclemens/khttp/master.svg)](https://travis-ci.org/jkcclemens/khttp)
 [![Codecov](https://img.shields.io/codecov/c/github/jkcclemens/khttp.svg)](https://codecov.io/github/jkcclemens/khttp)
