@@ -1,14 +1,11 @@
-**Original ascclemens/khttp isn't actively maintained anymore and I can't reach its maintainers. I therefor continue development in this fork. This repo's master branch is always a stable build!**
+### Collect & Merge Fork!
+#### This repository is meant to collect some of the most recent works across forks.
 
-I hope one day the fixes and additions done here can be merged back into ascclemens/khttp.
-
+#### Any help with maintenance and further development appreciated.
+#
+____
 # khttp
-[![Travis CI](https://img.shields.io/travis/jkcclemens/khttp/master.svg)](https://travis-ci.org/jkcclemens/khttp)
-[![Codecov](https://img.shields.io/codecov/c/github/jkcclemens/khttp.svg)](https://codecov.io/github/jkcclemens/khttp)
-[![VersionEye](https://www.versioneye.com/user/projects/56243e0a36d0ab0021000bf4/badge.svg)](https://www.versioneye.com/user/projects/56243e0a36d0ab0021000bf4)
 [![License](https://img.shields.io/github/license/jkcclemens/khttp.svg)](https://github.com/jkcclemens/khttp/blob/master/LICENSE)
-[![Gratipay](https://img.shields.io/gratipay/jkcclemens.svg)](https://gratipay.com/~jkcclemens/)
-[![Documentation status](https://readthedocs.org/projects/khttp/badge/?version=latest)](http://khttp.readthedocs.org/en/latest/?badge=latest)
 
 khttp is a simple library for HTTP requests in Kotlin. It functions similarly to Python's `requests` module.
 
@@ -22,27 +19,3 @@ fun main(args: Array<out String>) {
     println(get("http://icanhazip.com").text)
 }
 ```
-
-## Dependency
-
-### Stable
-
-Stable releases are hosted on [JCenter](https://bintray.com/bintray/jcenter).
-
-```xml
-<repository>
-  <id>jcenter</id>
-  <url>https://jcenter.bintray.com/</url>
-</repository>
-<!-- ... -->
-<dependency>
-  <groupId>khttp</groupId>
-  <artifactId>khttp</artifactId>
-  <version>1.0.0</version>
-</dependency>
-```
-
-### Development
-
-Development builds are currently available through [JitPack](https://jitpack.io/#jkcclemens/khttp). Snapshot builds may
-eventually be hosted on [OJO](https://oss.jfrog.org/), but are not currently available there.
